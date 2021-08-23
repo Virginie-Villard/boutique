@@ -38,7 +38,7 @@
 <?php
 
 
-function articlesBdd() {
+function getArticlesBdd() {
     try
     {
         // On se connecte à MySQL
@@ -51,26 +51,19 @@ function articlesBdd() {
     }
     // On récupère tout le contenu de la table article de notre boutique
     $reponse = $bdd->query('SELECT * FROM article');
-    // On affiche chaque entrée une à une
-    while ($donnees = $reponse->fetch())
-    {
-    ?>
-        <p>
-        <strong>Article : </strong> <?php echo $donnees['name']; ?><br />
-        Description : <?php echo $donnees['description']; ?><br />
-        Prix : <?php echo $donnees['Price']; ?>  €<br />
-        <img src = <?php echo $donnees['Image']; ?> alt = image de <?php echo $donnees['name']?> width = "200"> <br />
-
-		<form action="panierAddAction.php" method="POST" enctype="multipart/form-data">
-		<input type="number" value="1" name="quantite"/>
-		<input type="hidden" name="id" value="'.$article['id'].'"/>
-		<input type="submit" value="Ajouter l\'article au panier"/>
-		</form>
-        
-    <?php
-    }
-    $reponse->closeCursor(); // Termine le traitement de la requête
 }
+
+// connection BDD :
+// $bdd = new PDO('mysql:host=localhost;dbname=boutique;charset=utf8', 'virginie.villard','OEvirg86!', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+// Importation BDD :
+// $article = $bdd->query('SELECT * FROM article');
+// Parcours tableau et comparer chaque élément jusqu'à trouver tous les bons :
+// while ($donnees = $article->fetch()){
+// 	if (id == $donnees['ID']){
+// 		echo $donnees['nom']
+// 	}
+// }
 
 
 ?>

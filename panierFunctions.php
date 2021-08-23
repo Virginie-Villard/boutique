@@ -44,8 +44,24 @@ function computePanierTotal($books, $panier) {
     echo $total;
 }
 
-function affichePanier($articles, $id, $quantite) {  
-    $article = getArticle($articles, $id);
+function affichePanier($id, $quantite) {  
+    //TODO !!! (fonction getArticlesBdd page data.php)
+    try
+    {
+        // On se connecte à MySQL
+        $bdd = new PDO('mysql:host=localhost;dbname=boutique;charset=utf8', 'virginie.villard','OEvirg86!', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e)
+    {
+        // En cas d'erreur, on affiche un message et on arrête tout
+            die('Erreur : '.$e->getMessage());
+    }
+    // On récupère tout le contenu de la table article de notre boutique
+    $reponse = $bdd->query('SELECT * FROM article');
+
+
+
+    $article = getArticleBdd($articles, $id);
     $total = intval($article['price']) * intval($quantite);
   
     afficheArticle($article);

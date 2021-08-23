@@ -10,7 +10,7 @@ if(isset($_SESSION['panier'])) {
 
 if(isset($_SESSION['panier'])) {
     foreach($_SESSION['panier'] as $id => $quantite) {
-        affichePanier($books, $id, $quantite);
+        affichePanier($id, $quantite);
     }
 }
 else{
