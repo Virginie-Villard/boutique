@@ -4,7 +4,7 @@
 
 if(isset($_GET['id'])) {     
 	// Je vais chercher l'article à afficher dans les données
-	$article = getArticle($books, $_GET['id']);
+	$article = getArticle(articlesBdd(), $_GET['id']);
 
 	//echo '<pre>';
 	//print_r($article); 

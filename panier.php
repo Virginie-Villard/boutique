@@ -18,7 +18,7 @@ else{
 }
 
 echo '<p>Votre Panier a un montant total de : ';
-computePanierTotal($books, $_SESSION['panier']);
+computePanierTotal($_SESSION['panier']);
 echo ' €</p>';
 
 /* TODO pouvoir modifier la quantité d'un article dans le panier.
