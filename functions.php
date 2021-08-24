@@ -53,4 +53,3 @@ function afficheCatalogue($articles) {
 
 ?>
 
-
