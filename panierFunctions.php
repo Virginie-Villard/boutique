@@ -59,7 +59,7 @@ function affichePanier($id, $quantite) {
     // On récupère tout le contenu de la table article de notre boutique
     $reponse = $bdd->query('SELECT * FROM article');
 
-
+    
 
     $article = getArticleBdd($articles, $id);
     $total = intval($article['price']) * intval($quantite);

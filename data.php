@@ -51,6 +51,7 @@ function getArticlesBdd() {
     }
     // On récupère tout le contenu de la table article de notre boutique
     $reponse = $bdd->query('SELECT * FROM article');
+
 }
 
 // connection BDD :
