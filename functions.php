@@ -2,22 +2,35 @@
 
 // Recherche un article dans une collection donnée ($articles) par son id ($id)
 // Si article n'existe pas renvoie null
-function getArticle($articles, $id) {
-	foreach ($articles as $article) {
-		if($id == $article['id']) {
-			return $article;
-		}
-	}
-return null;
+function getArticle($id) {
+	try
+    {
+        // On se connecte à MySQL
+        $bdd = new PDO('mysql:host=localhost;dbname=boutique;charset=utf8', 'virginie.villard','OEvirg86!', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e)
+    {
+        // En cas d'erreur, on affiche un message et on arrête tout
+            die('Erreur : '.$e->getMessage());
+    }
+    // On récupère tout le contenu de la table article de notre boutique
+    $reponse = $bdd->query('SELECT * FROM article WHERE IDArticle ='.$id);
+    // On affiche chaque entrée une à une
+    $donnees = $reponse->fetch();
+   
+		
+			return $donnees;
+			
+	
 }
 
 // Affiche un article passé en paramètre
 function afficheArticle($article) {
 	echo $article['name'];
 	echo'<br>';
-	echo $article['price'].' €';
+	echo $article['Price'].' €';
 	echo '<br>';
-	echo '<img src="' . $article['image'] . '" width="10%"/><br>';
+	echo '<img src="' . $article['Image'] . '" width="10%"/><br>';
 	echo '<br>';
 }
 

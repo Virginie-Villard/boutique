@@ -12,6 +12,7 @@ function addToPanier($id, $quantite){
     // Si mon id a déjà une quantité attribuée alors je rajoute la nouvelle quantité
     if(isset($_SESSION['panier'][$id])) {
         $_SESSION['panier'][$id] += $quantite;
+    
     }
     else {
         $_SESSION['panier'][$id] = intval($quantite);
@@ -35,22 +36,31 @@ function clearPanier(){
 }
 
 // Faire le total du prix de tous les articles du panier avec la quantite
-function computePanierTotal($books, $panier) {
+function computePanierTotal( $panier) {
     $total = 0;
+
+
+
     foreach($panier as $id => $quantite) {
-        $article = getArticle($books, $id);
-        $total += intval($article['price']) * intval($quantite);
+       
+        $article = getArticle($id);
+       // var_dump($article);
+       
+        $total += intval($article['Price']) * intval($quantite);
     }
     echo $total;
 }
 
-function affichePanier($articles, $id, $quantite) {  
-    $article = getArticle($articles, $id);
-    $total = intval($article['price']) * intval($quantite);
+function affichePanier($id, $quantite) {  
+ 
+
+echo $id;
+    $article = getArticle($id);
+    $total = intval($article['Price']) * intval($quantite);
   
     afficheArticle($article);
   
-    echo '<p>'.$article['price'].'€ * '.$quantite.' = '.$total.' € </p>';
+    echo '<p>'.$article['Price'].'€ * '.$quantite.' = '.$total.' € </p>';
 }  
 
 ?>

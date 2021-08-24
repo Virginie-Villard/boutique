@@ -10,7 +10,7 @@ if(isset($_GET['page'])) {
 
   if($_GET['page'] == 'article' && isset($_GET['id'])) {
 
-    $article = getArticle($books, $_GET['id']);
+    $article = getArticle($_GET['id']);
     if($article != null) {
       echo '<title>'.$article['name'].'</title>';
     }
