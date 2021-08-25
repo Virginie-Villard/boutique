@@ -83,16 +83,24 @@ class Catalogue {
         $arrayLength = count($this->articleList);
 
         while($i < $arrayLength) {
-            echo "ID : ".$this->articleList[$i]->ID .'<br>'; //articleList en tant que propriété et pas variable !!!
+            echo "ID : ".$this->articleList[$i]->ID.'<br>'; //articleList en tant que propriété et pas variable !!!
             echo "Nom : ".$this->articleList[$i]->Nom .'<br>';
             echo "Description : ".$this->articleList[$i]->Description .'<br>';
             echo "Prix : ".$this->articleList[$i]->Prix .'<br>';
-            echo 'Image : <img src='.$this->articleList[$i]->Image .' width="150" /> <br>';
             echo "Poids : ".$this->articleList[$i]->Poids .'<br>';
             echo "Stock : ".$this->articleList[$i]->Stock .'<br>';
             echo "Disponible : ".$this->articleList[$i]->Disponible .'<br>';
             echo "En vente : ".$this->articleList[$i]->EnVente .'<br>';
             echo "Categorie : ".$this->articleList[$i]->Categorie .'<br>'; 
+            
+            // On lui donne la variable article ET on lui donne aussi le nom de l'article
+            echo '<a href="index.php?page=article&id='.$this->articleList[$i]->ID.'"> <img src='.$this->articleList[$i]->Image .' width="150" /> </a> <br>';
+            echo '<form action="panierAddAction.php" method="POST" enctype="multipart/form-data">';
+            echo '<input type="number" value="1" name="quantite"/>';
+            echo '<input type="hidden" name="ID" value="'.$this->articleList[$i]->ID.'"/>';
+            echo '<input type="submit" value="Ajouter l\'article au panier"/>';
+            echo '</form>';
+            
             $i++;
         }
     }
