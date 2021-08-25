@@ -31,6 +31,11 @@ if(isset($_GET['page'])) {
   if($_GET['page'] == 'panier') {
     include('panier.php');
   }
+
+  if($_GET['page'] == 'client') {
+    include('client.php');
+  }
+
 }
 else {
   include('accueil.php');

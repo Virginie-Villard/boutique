@@ -106,4 +106,67 @@ class Catalogue {
     }
 }
 
+// ______________________________________________________________________________
+// ______________________________________________________________________________
+
+class Client {
+    public array $clientList;
+
+    public function __construct(int $ID, string $Prenom, string $Nom, string $Adresse,  int $Postcode, string $City, string $eMail, string $Image) {
+        $this->ID = $ID;
+        $this->Prenom = $Prenom;
+        $this->Nom = $Nom;
+        $this->Adresse = $Adresse;
+        $this->Postcode = $Postcode;
+        $this->City = $City;
+        $this->eMail = $eMail;
+        $this->Image = $Image;
+    }
+
+    public function displayClient() {
+        $i = 0;
+        $arrayLength = count($this->clientList);
+
+        while($i < $arrayLength) {
+            echo "<p> ID : ".$this->clientList[$i]->ID.'<br>'; //clientList en tant que propriété et pas variable !!!
+            echo "Prénom : ".$this->clientList[$i]->Prenom .'<br>';
+            echo "Nom : ".$this->clientList[$i]->Nom .'<br>';
+            echo "Adresse : ".$this->clientList[$i]->Adresse .'<br>';
+            echo "Postcode : ".$this->clientList[$i]->Postcode .'<br>';
+            echo "City : ".$this->clientList[$i]->City .'<br>';
+            echo "e-mail : ".$this->clientList[$i]->eMail .'<br>';
+                        
+            // On lui donne la variable client ET on lui donne aussi le nom de l'client
+            echo '<img src='.$this->clientList[$i]->Image .' width="300" /> <br> </p>';
+
+            $i++;
+        }
+    }
+}
+
+// ______________________________________________________________________________
+class CatalogueClient {
+    public array $clientList;
+
+    public function displayClient() {
+        $i = 0;
+        $arrayLength = count($this->clientList);
+
+        while($i < $arrayLength) {
+            echo "ID : ".$this->clientList[$i]->ID.'<br>'; //clientList en tant que propriété et pas variable !!!
+            echo "Prénom : ".$this->clientList[$i]->Prenom .'<br>';
+            echo "Nom : ".$this->clientList[$i]->Nom .'<br>';
+            echo "Adresse : ".$this->clientList[$i]->Adresse .'<br>';
+            echo "Code postal : ".$this->clientList[$i]->Postcode .'<br>';
+            echo "Ville : ".$this->clientList[$i]->City .'<br>';
+            echo "e-mail : ".$this->clientList[$i]->eMail .'<br>';
+            
+            // On lui donne la variable client ET on lui donne aussi le nom du client
+            echo '<img src='.$this->clientList[$i]->Image .' width="150" /> <br>';
+                        
+            $i++;
+        }
+    }
+}
+
 ?>
