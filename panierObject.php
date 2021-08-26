@@ -17,7 +17,9 @@ else{
     echo 'Votre panier est vide, visitez notre Catalogue !';
 }
 
-if(isset($_SESSION['panier'])) {
+if(isset($_SESSION['panier']->panierList)) {
+
+
     foreach($_SESSION['panier']->panierList as $element){
         // echo $element['id'];
         // echo $element['quantite'];
