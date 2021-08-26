@@ -95,8 +95,8 @@ class Catalogue {
             
             // On lui donne la variable article ET on lui donne aussi le nom de l'article
             echo '<a href="index.php?page=article&id='.$this->articleList[$i]->ID.'"> <img src='.$this->articleList[$i]->Image .' width="150" /> </a> <br>';
-            echo '<form action="panierAddAction.php" method="POST" enctype="multipart/form-data">';
-            echo '<input type="number" value="1" name="quantite"/>';
+            echo '<form action="index.php?page=panier" method="POST" enctype="multipart/form-data">';
+            echo '<input type="number" name="quantite" value="1" />';
             echo '<input type="hidden" name="ID" value="'.$this->articleList[$i]->ID.'"/>';
             echo '<input type="submit" value="Ajouter l\'article au panier"/>';
             echo '</form>';
@@ -166,6 +166,17 @@ class CatalogueClient {
                         
             $i++;
         }
+    }
+}
+
+// ______________________________________________________________________________
+// ______________________________________________________________________________
+
+class Panier{
+    public array $panierList;
+
+    public function addPanier($id,$quantite) {
+        $this->panierList[]=['id'=>$id, 'quantite'=>$quantite];
     }
 }
 

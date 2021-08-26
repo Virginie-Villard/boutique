@@ -1,6 +1,6 @@
 <?php
 
-require('class.php');
+// require('class.php');
 
 try {
     // On se connecte à MySQL

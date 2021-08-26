@@ -60,7 +60,7 @@ function articlesBdd() {
         Description : <?php echo $donnees['description']; ?><br />
         Prix : <?php echo $donnees['Price']; ?>  €<br />
         <a href = "index.php?page=article&id=<?php echo $donnees['IDArticle']; ?>"><img src = <?php echo $donnees['Image']; ?> alt = image de <?php echo $donnees['name']?> width = "200"> </a> <br />
-		<form action="panierAddAction.php" method="POST" enctype="multipart/form-data">
+		<form action="panierObject.php" method="POST" enctype="multipart/form-data">
 		<input type="number" value="1" name="quantite"/>
 		<input type="hidden" name="id" value="<?php echo $donnees['IDArticle']; ?>"/>
 		<input type="submit" value="Ajouter l\'article au panier"/>

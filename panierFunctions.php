@@ -1,23 +1,23 @@
 <?php
 
-// Initie le panier
-function createPanier(){
-    if(!isset($_SESSION['panier'])) {
-        $_SESSION['panier'] = [];
-    }
-}
+// // Initie le panier
+// function createPanier(){
+//     if(!isset($_SESSION['panier'])) {
+//         $_SESSION['panier'] = [];
+//     }
+// }
 
-// Permet dans le catalogue de rajouter des articles dans le panier
-function addToPanier($id, $quantite){
-    // Si mon id a déjà une quantité attribuée alors je rajoute la nouvelle quantité
-    if(isset($_SESSION['panier'][$id])) {
-        $_SESSION['panier'][$id] += $quantite;
+// // Permet dans le catalogue de rajouter des articles dans le panier
+// function addToPanier($id, $quantite){
+//     // Si mon id a déjà une quantité attribuée alors je rajoute la nouvelle quantité
+//     if(isset($_SESSION['panier'][$id])) {
+//         $_SESSION['panier'][$id] += $quantite;
     
-    }
-    else {
-        $_SESSION['panier'][$id] = intval($quantite);
-    }
-}
+//     }
+//     else {
+//         $_SESSION['panier'][$id] = intval($quantite);
+//     }
+// }
 
 // TODO (formulaire dans le panier + vérif que la quantité finale par article >= 0)
 function removeFromPanier($id, $quantite){

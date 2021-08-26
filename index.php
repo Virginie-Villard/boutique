@@ -1,4 +1,4 @@
-<?php
+<?php require('class.php');
 session_start();
 if (isset($_GET['destroy'])){
   session_destroy(); 
@@ -29,7 +29,7 @@ if(isset($_GET['page'])) {
   }
 
   if($_GET['page'] == 'panier') {
-    include('panier.php');
+    include('panierObject.php');
   }
 
   if($_GET['page'] == 'client') {

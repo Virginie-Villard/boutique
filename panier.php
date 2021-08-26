@@ -1,26 +1,27 @@
 <?php
 
-require('panierFunctions.php');
+// require('class.php');
+// require('panierFunctions.php');
 
-if(isset($_SESSION['panier'])) {
-    echo '<p><a href= "panierClearAction.php">Vider le panier</a></p>';
+// if(isset($_SESSION['panier'])) {
+//     echo '<p><a href= "panierClearAction.php">Vider le panier</a></p>';
 
-//var_dump($_SESSION['panier']);
+// //var_dump($_SESSION['panier']);
 
-if(isset($_SESSION['panier'])) {
-    foreach($_SESSION['panier'] as $id => $quantite) {
-        affichePanier($id, $quantite);
-    }
-}
-else{
-    echo 'Votre panier est vide, parcourez notre catalogue';
-}
+// if(isset($_SESSION['panier'])) {
+//     foreach($_SESSION['panier'] as $id => $quantite) {
+//         affichePanier($id, $quantite);
+//     }
+// }
+// else{
+//     echo 'Votre panier est vide, parcourez notre catalogue';
+// }
 
-echo '<p>Votre Panier a un montant total de : ';
-computePanierTotal($_SESSION['panier']);
-echo ' €</p>';
-}
-else {header('location:index.php?page=catalogue');}
+// echo '<p>Votre Panier a un montant total de : ';
+// computePanierTotal($_SESSION['panier']);
+// echo ' €</p>';
+// }
+// else {header('location:index.php?page=catalogue');}
 
 
 /* TODO pouvoir modifier la quantité d'un article dans le panier.
@@ -40,6 +41,7 @@ function modifQuantite($articles) {
 	}
 }
 */
+
 ?>
 
 

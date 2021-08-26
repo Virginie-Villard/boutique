@@ -43,7 +43,7 @@ function afficheCatalogue($articles) {
 		echo '<img src="'.$article["image"].'" width="10%" /> <br>';
 		echo '</a>';
 
-		echo '<form action="panierAddAction.php" method="POST" enctype="multipart/form-data">';
+		echo '<form action="panierObject.php" method="POST" enctype="multipart/form-data">';
 		echo '<input type="number" value="1" name="quantite"/>';
 		echo '<input type="hidden" name="id" value="'.$article['id'].'"/>';
 		echo '<input type="submit" value="Ajouter l\'article au panier"/>';
