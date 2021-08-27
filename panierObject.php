@@ -47,8 +47,8 @@ if(isset($_SESSION['panier']->panierList)) {
         echo "Catégorie : ".$donnees['Categorie']."<br />";
         echo "<img src='".$donnees['Image']."'width='150'/> <br />";
         // echo $donnees['quantite'];
-        echo $element['id']."<br /><br />";
-        echo $element['quantite']."<br />";
+        echo $element['id']."<br />";
+        echo "Quantité : ".$element['quantite']."<br /><br />";
         }
     }
 }
